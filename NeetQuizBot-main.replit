@@ -1,0 +1,35 @@
+modules = ["python-3.11"]
+[agent]
+expertMode = true
+integrations = ["python_database:1.0.0"]
+
+[nix]
+channel = "stable-25_05"
+packages = ["cacert", "cargo", "gir-rs", "glibcLocales", "libffi", "libiconv", "libxcrypt", "openssl", "pkg-config", "postgresql", "rustc"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "JEE Quiz Bot"
+
+[[workflows.workflow]]
+name = "JEE Quiz Bot"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python main.py"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
