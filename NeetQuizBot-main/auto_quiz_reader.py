@@ -1119,7 +1119,7 @@ class AutoQuizReader:
         # ROUTE 2 — AIRA PERSONAL PRIVATE DMs
         # ============================================================
         else:
-            await self._handle_aira_private_message(event)
+            
             return
 
         # ============================================================
